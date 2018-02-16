@@ -8,6 +8,7 @@ const FilterSelect = ({filter}) => {
     </select>
   )
 }
+
 FilterSelect.propTypes = {
   filter: PropTypes.string.isRequired
 }

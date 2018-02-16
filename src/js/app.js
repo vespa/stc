@@ -1,25 +1,19 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import CSS from '../css/main.scss'
-import FilterSelect from "components/FilterSelect";
+import AppContainer from "containers/AppContainer";
 import 'babel-polyfill'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducers from './reducers'
 
 const wrapper = document.getElementById("root");
+let store = createStore(reducers);
 
 const app = ()=>{
-    const itemClass = "app__item";
-    return  <div className="app">
-                <header className="app__header">TraficMeister</header>
-                <div className="app__filters">
-                    <div className="app__filters__list">
-                        <FilterSelect filter="FILTER_VEHICLE" />
-                        <FilterSelect filter="FILTER_VEHICLE_BRAND" />
-                        <FilterSelect filter="FILTER_VEHICLE_COLOR" />
-                    </div>
-                </div>
-                <div className="app_results">
-                    results
-                </div>
-            </div>
+	const itemClass = "app__item";
+	return   <Provider store={store}>
+					<AppContainer />  
+			</Provider>
 }
 wrapper ? ReactDOM.render(app(), wrapper) : false;
