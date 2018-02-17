@@ -22,7 +22,6 @@ class App extends Component {
       }
       // redux
       this.props.onFetchData(data);
-      console.log(this.props)
     })
   }
 

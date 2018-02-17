@@ -2,8 +2,7 @@ import App from "./App"
 import { dataFetched } from 'actions'
 import { connect } from 'react-redux'
 
-const mapStateToProps = state => {
-  console.log(state)
+const mapStateToProps = (state =[]) => {
   return {
      data : state
   }
