@@ -68,7 +68,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: e => {
       console.log(ownProps)
-     // filterContent(dispatch, ownProps.filter, e.target.value)
+      filterContent(dispatch, ownProps.filter, e.target.value)
     }
   }
 }

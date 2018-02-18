@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FilterList from "components/FilterList";
+import Results from "containers/Results";
 import trafficMeister from "data/index"
 class App extends Component {
 
@@ -37,7 +38,7 @@ class App extends Component {
           <FilterList />
         </div>
         <div className="app_results">
-          results
+          <Results />
         </div>
       </div>
     );
