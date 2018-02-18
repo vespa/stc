@@ -17,7 +17,8 @@ module.exports = {
         components: path.resolve(__dirname, "src/js/components/"),
         containers: path.resolve(__dirname, "src/js/containers/"),
         data: path.resolve(__dirname, "src/js/data/"),
-        reducers: path.resolve(__dirname, "src/js/reducers/")
+        reducers: path.resolve(__dirname, "src/js/reducers/"),
+        helpers: path.resolve(__dirname, "src/js/helpers/")
       }
   },
   module: {
