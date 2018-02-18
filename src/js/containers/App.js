@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FilterList from "components/FilterList";
+import FilterList from "containers/FilterList";
 import Results from "containers/Results";
 import trafficMeister from "data/index"
 class App extends Component {

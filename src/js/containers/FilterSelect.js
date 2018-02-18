@@ -1,5 +1,5 @@
 import FilterSelect from "components/FilterSelect"
-import { filterVehicle , filterVehicleBrand, filterVehicleColor } from 'actions'
+import { filterVehicle , filterVehicleBrand, filterVehicleColor , filterRemove} from 'actions'
 import { connect } from 'react-redux'
 
 
@@ -14,12 +14,10 @@ const filterByType = (type, data) =>{
 const normalize = item =>{
   return item.toLowerCase().replace(/\s{}/g, "")
 }
-
 const setContent = (filter, data = []) => {
     switch(filter){
       case "FILTER_VEHICLE":
         return filterByType("type",data);
-
       case "FILTER_VEHICLE_BRAND":
        return filterByType("brand",data);
 
@@ -59,15 +57,15 @@ const filterContent = (dispatch, filter, value) => {
 
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-     options: setContent(ownProps.filter, state.dataFetched)
+    return {
+     options: setContent(ownProps.filter, state.dataFetched),
+     noActiveFilters: (Object.keys(state.filters).length === 0)
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: e => {
-      console.log(ownProps)
       filterContent(dispatch, ownProps.filter, e.target.value)
     }
   }

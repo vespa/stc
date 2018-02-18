@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 let count = 0;
-const Results = ({ filtered }) => {
-      console.log(filtered)
+const Results = ({ filtered}) => {
        return (
         <div >
+        
           {filtered.map(item => {
             return <div key={count++}>
                       <div><b>Type</b>: {item.type}</div>
@@ -19,9 +19,7 @@ const Results = ({ filtered }) => {
 }
 
 Results.propTypes = {
-  // filter: PropTypes.string.isRequired,
-  // options: PropTypes.array.isRequired,
-  // onChange: PropTypes.func.isRequired,
+  filtered: PropTypes.array.isRequired,
 }
 
 export default Results
