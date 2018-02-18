@@ -1,5 +1,5 @@
 import FilterList from "components/FilterList"
-import { filterRemove } from 'actions'
+import { filterRemove } from 'actions/index'
 import { connect } from 'react-redux'
 
 

@@ -12,6 +12,4 @@ const FilterList = ({ filterActive, onClick }) => {
     </div>
   )
 }
-
-
 export default FilterList

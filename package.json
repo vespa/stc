@@ -19,7 +19,8 @@
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "**/src/js/components/**/**.{js,jsx}"
+      "**/src/js/components/**/**.{js,jsx}",
+       "**/src/js/containers/**/**.{js,jsx}"
     ],
     "verbose": true,
     "moduleNameMapper": {
@@ -27,7 +28,9 @@
       "^components/(.*)": "<rootDir>/src/js/components/$1",
       "^containers/(.*)": "<rootDir>/src/js/containers/$1",
       "^data/(.*)": "<rootDir>/src/js/data/$1",
-      "^reducers/(.*)": "<rootDir>/src/js/reducers/$1"
+      "^reducers/(.*)": "<rootDir>/src/js/reducers/$1",
+      "^helpers/(.*)": "<rootDir>/src/js/helpers/$1"
+
     }
   },
   "devDependencies": {

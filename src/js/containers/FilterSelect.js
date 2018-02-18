@@ -1,6 +1,7 @@
 import FilterSelect from "components/FilterSelect"
-import { filterVehicle , filterVehicleBrand, filterVehicleColor , filterRemove} from 'actions'
+
 import { connect } from 'react-redux'
+import { filterVehicle , filterVehicleBrand, filterVehicleColor , filterRemove} from 'actions/index'
 import filterContent from "helpers/filterContent"
 
 const filterByType = (type, data) =>{

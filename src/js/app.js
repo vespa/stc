@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import CSS from '../css/main.scss'
-import AppContainer from "containers/AppContainer";
+import {AppContainer} from "containers/AppContainer";
 import 'babel-polyfill'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
