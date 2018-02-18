@@ -5,7 +5,7 @@ import FilterSelect from "containers/FilterSelect"
 const FilterList = ({ filterActive, onClick }) => {
   return (
     <div className="app__filters__list">
-      {(filterActive)? <div> <a href="#" onClick={onClick.bind(this)} > remove filters </a> </div> : ""}
+      {(filterActive)? <div> <a href="#" onClick={onClick.bind(this)} > Remove all filters </a> </div> : ""}
       <FilterSelect filter="FILTER_VEHICLE" />
       <FilterSelect filter="FILTER_VEHICLE_BRAND" />
       <FilterSelect filter="FILTER_VEHICLE_COLOR" />

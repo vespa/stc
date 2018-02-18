@@ -1,7 +1,7 @@
 import FilterSelect from "components/FilterSelect"
 import { filterVehicle , filterVehicleBrand, filterVehicleColor , filterRemove} from 'actions'
 import { connect } from 'react-redux'
-
+import filterContent from "helpers/filterContent"
 
 const filterByType = (type, data) =>{
   return data
@@ -14,6 +14,7 @@ const filterByType = (type, data) =>{
 const normalize = item =>{
   return item.toLowerCase().replace(/\s{}/g, "")
 }
+
 const setContent = (filter, data = []) => {
     switch(filter){
       case "FILTER_VEHICLE":
@@ -39,7 +40,7 @@ const setContent = (filter, data = []) => {
     return data
 }
 
-const filterContent = (dispatch, filter, value) => {
+const filterResults = (dispatch, filter, value) => {
   switch(filter){
       case "FILTER_VEHICLE":
         dispatch(filterVehicle(value));
@@ -58,7 +59,7 @@ const filterContent = (dispatch, filter, value) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-     options: setContent(ownProps.filter, state.dataFetched),
+     options: setContent(ownProps.filter, filterContent(state.dataFetched, state.filters)),
      noActiveFilters: (Object.keys(state.filters).length === 0)
   }
 }
@@ -66,7 +67,11 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: e => {
-      filterContent(dispatch, ownProps.filter, e.target.value)
+      filterResults(dispatch, ownProps.filter, e.target.value)
+    },
+    onClick: e => {
+      e.preventDefault();
+      filterResults(dispatch, ownProps.filter, "0")
     }
   }
 }

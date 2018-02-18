@@ -7,8 +7,6 @@ export const dataFetched = data => {
     data : data
   }
 }
-
-
 export const filterVehicle = (vehicle) =>{
     return {
         type: "FILTER_VEHICLE",

@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 let count = 0;
-const Results = ({ filtered}) => {
+const Results = ({ filtered }) => {
        return (
         <div >
-        
           {filtered.map(item => {
             return <div key={count++}>
                       <div><b>Type</b>: {item.type}</div>
