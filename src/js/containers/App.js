@@ -9,12 +9,13 @@ class App extends Component {
     this.state ={
       tries: 0,
       maxTries: 6,
-      timer: 1000 
+      timer: 1000
     }
     this._getData = this._getData.bind(this);
   }
 
   _getData(){
+    const that = this;
     trafficMeister.fetchData((err, data) => {
       if(err !== null ){
         this.setState({ tries: this.state.tries+1})
@@ -22,7 +23,7 @@ class App extends Component {
         throw (err);
       }
       // redux
-      this.props.onFetchData(data);
+     this.props.onFetchData(data);
     })
   }
 

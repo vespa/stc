@@ -2,13 +2,13 @@ import App from "./App"
 import { dataFetched } from 'actions/index'
 import { connect } from 'react-redux'
 
-export const mapStateToProps = (state =[]) => {
+const mapStateToProps = (state =[]) => {
   return {
      data : state
   }
 }
 
-export const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
     onFetchData: data => {
       dispatch(dataFetched(data))

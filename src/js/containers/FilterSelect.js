@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { filterVehicle , filterVehicleBrand, filterVehicleColor , filterRemove} from 'actions/index'
 import filterContent from "helpers/filterContent"
 
-const filterByType = (type, data) =>{
+export const filterByType = (type, data) =>{
   return data
   .map(item =>{
        return item[type];
@@ -16,7 +16,7 @@ const normalize = item =>{
   return item.toLowerCase().replace(/\s{}/g, "")
 }
 
-const setContent = (filter, data = []) => {
+export const setContent = (filter, data = []) => {
     switch(filter){
       case "FILTER_VEHICLE":
         return filterByType("type",data);
@@ -38,20 +38,16 @@ const setContent = (filter, data = []) => {
       default:
         return [].concat.apply([], data);
     }
-    return data
 }
 
-const filterResults = (dispatch, filter, value) => {
+export const filterResults = (dispatch, filter, value) => {
   switch(filter){
       case "FILTER_VEHICLE":
-        dispatch(filterVehicle(value));
-        break;
+        return dispatch(filterVehicle(value));
       case "FILTER_VEHICLE_BRAND":
-        dispatch(filterVehicleBrand(value));
-       break;
+        return dispatch(filterVehicleBrand(value));
       case "FILTER_VEHICLE_COLOR":
-        dispatch(filterVehicleColor(value));
-        break;
+        return dispatch(filterVehicleColor(value));
       default:
         return [];
   }
@@ -77,9 +73,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const FilterSelectContainer = connect(
+export const FilterSelectContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(FilterSelect)
-
-export default FilterSelectContainer

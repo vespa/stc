@@ -20,7 +20,7 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "**/src/js/components/**/**.{js,jsx}",
-       "**/src/js/containers/**/**.{js,jsx}"
+      "**/src/js/containers/**/**.{js,jsx}"
     ],
     "verbose": true,
     "moduleNameMapper": {
@@ -30,7 +30,6 @@
       "^data/(.*)": "<rootDir>/src/js/data/$1",
       "^reducers/(.*)": "<rootDir>/src/js/reducers/$1",
       "^helpers/(.*)": "<rootDir>/src/js/helpers/$1"
-
     }
   },
   "devDependencies": {
@@ -42,6 +41,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.8",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
     "enzyme-adapter-react-16": "^1.1.1",
     "file-loader": "^1.1.6",
     "html-loader": "^0.5.1",
@@ -53,6 +53,7 @@
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",
+    "redux-mock-store": "^1.5.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.6",
