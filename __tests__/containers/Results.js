@@ -20,7 +20,8 @@ describe('Results', () => {
 
     it('maps state and dispatch to props', () => {
         expect(wrapper.props()).toEqual(expect.objectContaining({
-            filtered: expect.any(Array)
+            filtered: expect.any(Array),
+            activeFilters: expect.any(Number)
         }));
     });
 });

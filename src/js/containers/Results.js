@@ -5,7 +5,8 @@ import filterContent from "helpers/filterContent"
 
 const mapStateToProps = (state) => {
   return {
-     filtered : filterContent(state.dataFetched, state.filters)
+     filtered : filterContent(state.dataFetched, state.filters),
+     activeFilters:  state.filterList.length
   }
 }
 
