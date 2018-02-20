@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types'
 
 export class ImageLoader extends Component {
+  
   constructor() {
     super();
     this.state ={
@@ -10,28 +11,28 @@ export class ImageLoader extends Component {
     }
     this._loadImage = this._loadImage.bind(this);
   }
+
   componentDidMount(){
     this._loadImage();
   }
-
   _loadImage(){
     if(this.state.currentImage !=="") return;
     const src =  this.props.src;
     var img = document.createElement("img");
     img.onload = () =>{
-      this.setState({currentImage: src});
+      this.setState({currentImage: <img src={src} />});
     }
     img.onerror = () =>{
-      console.log(src)
+      //console.log(src)
     }
     img.src = src;
   }
-  
+
   render() {
     const {currentImage} = this.state;
     return (
       <div >
-        <img src={currentImage} />
+        {this.state.currentImage} 
       </div>
     );
   }

@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {ImageLoader} from 'components/ImageLoader'
+import {ImageLoader} from 'containers/ImageLoader'
 
 let count = 0;
 const Results = ({ filtered }) => {
        return (
         <div >
+          {(filtered.length === 0)? "There's no options avaiable for selected configuration" :""}
           {filtered.map(item => {
             return <div key={count++}>
                       <ImageLoader src={item.img} />

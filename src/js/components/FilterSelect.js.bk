@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FilterSelect = ({options, onChange, noActiveFilters, onClick}) => {
+const FilterSelect = ({filter, options, onChange, noActiveFilters, onClick}) => {
     const myOptions =  options.map(item => <option key={item}> {item} </option>) 
     const value = (noActiveFilters)? {value: 0} : {};
     return (
@@ -17,6 +17,7 @@ const FilterSelect = ({options, onChange, noActiveFilters, onClick}) => {
 }
 
 FilterSelect.propTypes = {
+  filter: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
   noActiveFilters: PropTypes.bool.isRequired

@@ -56,7 +56,8 @@ export const filterResults = (dispatch, filter, value) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-     options: setContent(ownProps.filter, filterContent(state.dataFetched, state.filters)),
+     //options: setContent(ownProps.filter, filterContent(state.dataFetched, state.filters)),
+     options: setContent(ownProps.filter, state.dataFetched),
      noActiveFilters: (Object.keys(state.filters).length === 0)
   }
 }
