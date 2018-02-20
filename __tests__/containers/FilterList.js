@@ -21,7 +21,8 @@ describe('FilterList', () => {
     it('maps state and dispatch to props', () => {
         expect(wrapper.props()).toEqual(expect.objectContaining({
             filterActive: expect.any(Boolean),
-            onClick: expect.any(Function)
+            onClick: expect.any(Function),
+            activeList: expect.any(Array),
         }));
     });
 

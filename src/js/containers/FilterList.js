@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state =[]) => {
   return {
-     filterActive: (Object.keys(state.filters).length > 0)
+     filterActive: (Object.keys(state.filters).length > 0),
+     activeList:  state.filterList
   }
 }
 
