@@ -6,6 +6,7 @@ import 'babel-polyfill'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from './reducers'
+import 'bootstrap';
 
 const wrapper = document.getElementById("root");
 let store = createStore(reducers);
