@@ -20,7 +20,7 @@ export class ImageLoader extends Component {
     const src =  this.props.src;
     var img = document.createElement("img");
     img.onload = () =>{
-      this.setState({currentImage: <img src={src} />});
+      this.setState({currentImage: <img src={src} className="image-comp__img" />});
     }
     img.onerror = () =>{
       //console.log(src)
@@ -31,7 +31,7 @@ export class ImageLoader extends Component {
   render() {
     const {currentImage} = this.state;
     return (
-      <div >
+      <div className="result-page__img image-comp">
         {this.state.currentImage} 
       </div>
     );

@@ -1,1 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "./_mixins.scss";
+@import "./_vars.scss";
+@import "./results.scss";
+@import "./filterList.scss";
+@import "./imageLoader.scss";

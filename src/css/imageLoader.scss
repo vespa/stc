@@ -1,0 +1,10 @@
+.image-comp{
+    width:100%;
+    margin: 0 0 1rem 0;
+    &__img{
+        width: inherit;
+        border:1px solid $soft-grey;
+        @include border-radius(0.8rem); 
+
+    }
+}

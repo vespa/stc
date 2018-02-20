@@ -33,12 +33,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <header className="app__header">TraficMeister</header>
-        <div className="app__filters">
+      <div >
+        <header className="app__header">
           <FilterList />
-        </div>
-        <div className="app_results">
+        </header>
+         <div className="app_results">
           <Results />
         </div>
       </div>

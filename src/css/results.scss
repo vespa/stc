@@ -1,0 +1,27 @@
+.result-page{
+	margin: 0 auto;
+    &__item{
+        border:0.3rem solid #fff;
+        @include linear-gradient ('to bottom', $soft-grey, $soft-grey, #fff); 
+        @include border-radius(0.8rem); 
+        &__box{
+			  display: flex;
+			  flex-flow: row wrap;
+			  flex-grow: 1;
+			  height:100%;
+			  padding: 1rem 0 ;
+            &__cont{
+			  display: flex;
+			  flex-flow: row wrap;
+            }
+            &__img{
+            	flex:1 100%;
+            }
+            &__description{
+            	flex:1 100%;
+            	flex-grow: 1;
+            	align-self: flex-end;
+            }
+        }
+    }    
+}
