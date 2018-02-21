@@ -26,7 +26,6 @@ describe('FilterList', () => {
         }));
     });
 
-
    it('maps change', () => {
       let eventType = {
           preventDefault : () =>{}

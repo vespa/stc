@@ -80,12 +80,6 @@ describe("App", ()=>{
         maxTries: 6,
         timer: 100
     })
-
-    returnError = () => {
-      wrapper.instance()._tryCallData("not_null")
-    }
     expect(returnError).toThrowError("too much tries")
   })
-
-
 })

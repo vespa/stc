@@ -8,8 +8,8 @@ import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
-
-let store = createStore(reducers);
+    let wrapper,
+        store = createStore(reducers);
 
 describe("AppContainer", ()=>{
 
@@ -23,23 +23,21 @@ describe("AppContainer", ()=>{
    expect(tree1).toMatchSnapshot();
   });
 
-    let wrapper, store;
+  beforeEach(() =>{
+      store = createStore(reducers);
+      store.dispatch = jest.fn();
+      wrapper = shallow(<AppContainer store={store}/>);
+  });
 
-    beforeEach(() =>{
-        store = createStore(reducers);
-        store.dispatch = jest.fn();
-        wrapper = shallow(<AppContainer store={store}/>);
-    });
+  it('maps state and dispatch to props', () => {
+      expect(wrapper.props()).toEqual(expect.objectContaining({
+          onFetchData: expect.any(Function)
+      }));
+  });
 
-    it('maps state and dispatch to props', () => {
-        expect(wrapper.props()).toEqual(expect.objectContaining({
-            onFetchData: expect.any(Function)
-        }));
-    });
-
-   it('maps onIncrement to dispatch increment action', () => {
-        wrapper.props().onFetchData();
-        expect(store.dispatch).toHaveBeenCalledWith({type: 'DATA_FETCHED'});
-    });
+  it('maps onIncrement to dispatch increment action', () => {
+      wrapper.props().onFetchData();
+      expect(store.dispatch).toHaveBeenCalledWith({type: 'DATA_FETCHED'});
+  });
 
 })

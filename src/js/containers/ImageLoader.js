@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types'
 
-
-
-
 export class ImageLoader extends Component {  
   constructor() {
     super();
