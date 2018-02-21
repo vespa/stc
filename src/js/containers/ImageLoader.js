@@ -39,7 +39,6 @@ export class ImageLoader extends Component {
 
   _loadImage(){
     const src = this.props.src;
-    if(this.state.currentImage !=="") return false;
     this._callImage(src, this._setValidImage, this._setNotFoundImage)
     return src;
   }

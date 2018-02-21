@@ -36,7 +36,7 @@ describe("Results", ()=>{
 
      const component = renderer.create(
       <Provider store={store}>
-        <Results filtered={mock} />
+        <Results filtered={mock} activeFilters={3} />
       </Provider>
       );
 

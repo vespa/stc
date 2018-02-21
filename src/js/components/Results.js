@@ -9,7 +9,7 @@ const Results = ({ filtered, activeFilters }) => {
         <main role="main" className="result-page container">
           <div className="row" >
           {(filtered.length === 0 && activeFilters > 0)? 
-             <div className="alert alert-warning col result-page__alert" role="alert"> There's no options avaiable for selected configuration </div> :
+             <div className="alert alert-warning col result-page__alert" role="alert"> There is no options avaiable for selected configuration </div> :
             ""}
           {filtered.map(item => {
             return <div key={count++} className="col-md-4 result-page__item">

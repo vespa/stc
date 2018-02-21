@@ -12,19 +12,29 @@ class App extends Component {
       timer: 500
     }
     this._getData = this._getData.bind(this);
+    this._tryCallData = this._tryCallData.bind(this)
   }
 
+  _fetchData(data){
+    this.props.onFetchData(data);
+  }
+
+  _tryCallData(err, data){
+    if(err !== null){
+      if(this.state.tries < this.state.maxTries) {
+        setTimeout(this._getData, this.state.timer)
+      }else{
+        throw "too much tries";
+      }
+      throw err;
+    }
+    this._fetchData(data);
+  }
+  
   _getData(){
     const that = this;
     trafficMeister.fetchData((err, data) => {
-      if(err !== null ){
-        this.setState({ tries: this.state.tries+1})
-        if(this.state.tries < this.state.maxTries) setTimeout(this._getData, this.state.timer);
-        if(console) console.log("trying new request...")
-        throw (err);
-      }
-      // redux
-     this.props.onFetchData(data);
+      that._tryCallData(err, data)
     })
   }
 

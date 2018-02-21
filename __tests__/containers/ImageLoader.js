@@ -43,6 +43,8 @@ describe('ImageLoader', () => {
         expect(wrapper.instance().state.currentImage.type).toBe("img");
     })
     test('loadImage image: update image', ()=>{
+       wrapper.instance()._callImage = jest.fn();
        expect(wrapper.instance()._loadImage()).toEqual("./img/logo.png");
+       expect(wrapper.instance()._callImage.mock.calls.length).toBe(1);
     })
 });

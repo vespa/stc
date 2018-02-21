@@ -15,7 +15,7 @@ describe('Results', () => {
     beforeEach(() =>{
         store = createStore(reducers);
         store.dispatch = jest.fn();
-        wrapper = shallow(<Results store={store}/>);
+        wrapper = shallow(<Results store={store}  />);
     });
 
     it('maps state and dispatch to props', () => {
