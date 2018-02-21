@@ -6,10 +6,10 @@ const FilterList = ({ activeList , filterActive, onClick }) => {
   return (
     <div>
       <div  className="navbar navbar-dark bg-dark box-shadow">
-      	 <div className="container">
-	      <FilterSelectContainer filter="FILTER_VEHICLE" />
-	      <FilterSelectContainer filter="FILTER_VEHICLE_BRAND" />
-	      <FilterSelectContainer filter="FILTER_VEHICLE_COLOR" />
+      	<div className="container filter-lit"> 
+  	      <FilterSelectContainer filter="FILTER_VEHICLE" />
+  	      <FilterSelectContainer filter="FILTER_VEHICLE_BRAND" />
+  	      <FilterSelectContainer filter="FILTER_VEHICLE_COLOR" />
 	      </div>
       </div>
       <div className="container">

@@ -5,7 +5,7 @@ const FilterSelect = ({options, onChange, noActiveFilters, onClick}) => {
     const myOptions =  options.map(item => <option key={item}> {item} </option>) 
     const value = (noActiveFilters)? {value: 0} : {};
     return (
-        <div className="col-sm-4 text-center">
+        <div className="col-sm-4 text-center filter-list__filters">
             <select onChange={onChange.bind(this)} {...value} className="custom-select">
               {(options.length === 0)? <option> Loading... </option> : <option value={0}>  Select an option </option>  }
               {myOptions}

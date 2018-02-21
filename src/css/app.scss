@@ -1,0 +1,14 @@
+.app{
+    &__header{
+        background-color: #DF6425;
+        padding: .5rem .3rem;
+        &__logo{
+            width: 80%;
+            margin: 0 auto;
+            max-width:400px;
+            img{
+                width:100%;
+            }
+        }
+    }
+}

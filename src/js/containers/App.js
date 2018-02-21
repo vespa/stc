@@ -9,7 +9,7 @@ class App extends Component {
     this.state ={
       tries: 0,
       maxTries: 6,
-      timer: 1000
+      timer: 500
     }
     this._getData = this._getData.bind(this);
   }
@@ -20,6 +20,7 @@ class App extends Component {
       if(err !== null ){
         this.setState({ tries: this.state.tries+1})
         if(this.state.tries < this.state.maxTries) setTimeout(this._getData, this.state.timer);
+        if(console) console.log("trying new request...")
         throw (err);
       }
       // redux
@@ -34,9 +35,14 @@ class App extends Component {
   render() {
     return (
       <div >
-        <header className="app__header">
-          <FilterList />
+        <header className="app__header ">
+            <div className="container text-center">
+              <div className="app__header__logo">
+                  <img src="./img/logo.png" />
+              </div>
+            </div> 
         </header>
+        <FilterList />
          <div className="app_results">
           <Results />
         </div>

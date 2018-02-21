@@ -1,5 +1,8 @@
 .result-page{
 	margin: 0 auto;
+    &__alert{
+        margin:1rem;
+    }
     &__item{
         border:0.3rem solid #fff;
         @include linear-gradient ('to bottom', $soft-grey, $soft-grey, #fff); 

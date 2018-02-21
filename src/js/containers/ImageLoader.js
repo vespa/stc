@@ -26,7 +26,7 @@ export class ImageLoader extends Component {
   }
   _setNotFoundImage(){
       this.setState({currentImage: <img src={this.state.notFound} className="image-comp__img" />});
-      this.forceUpdate();
+      this.forceUpdate()
    }
 
   _callImage (src, success, err) {
