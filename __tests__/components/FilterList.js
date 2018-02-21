@@ -11,7 +11,7 @@ describe("FilterList", ()=>{
     it('should render correctly', () => {
      const component = renderer.create(
 		<Provider store={store}>
-			<FilterList filterActive={false} onClick={()=>{}} />
+			<FilterList filterActive={false} activeList={[]} onClick={()=>{}} />
 		</Provider>
       );
 
@@ -20,7 +20,7 @@ describe("FilterList", ()=>{
 
      const component2 = renderer.create(
   		<Provider store={store}>
-  			<FilterList filterActive={true} onClick={()=>{}} />
+  			<FilterList filterActive={true} activeList={[]} onClick={()=>{}} />
   		</Provider>
       );
 
