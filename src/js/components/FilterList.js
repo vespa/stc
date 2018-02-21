@@ -22,5 +22,9 @@ const FilterList = ({ activeList , filterActive, onClick }) => {
   )
 }
 
-
+FilterList.propTypes = {
+  activeList: PropTypes.array.isRequired,
+  onClick: PropTypes.func.isRequired,
+  filterActive: PropTypes.bool.isRequired
+}
 export default FilterList
