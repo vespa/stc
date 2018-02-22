@@ -20,7 +20,7 @@ describe("App", ()=>{
     beforeEach(() =>{
         store = createStore(reducers);
         store.dispatch = jest.fn();
-        wrapper = shallow(<App store={store}  />);
+        wrapper = shallow(<App store={store}  />,  { lifecycleExperimental: true });
     });
 
    test('should render correctly', () => {
@@ -46,7 +46,7 @@ describe("App", ()=>{
       wrapper.instance()._getData();
       expect(trafficMeister.fetchData.mock.calls.length).toBe(1);
    })
- //onFetchData
+
 
   test("should call fetchData Props" , () => {
       wrapper.setProps({
@@ -56,12 +56,56 @@ describe("App", ()=>{
       expect(wrapper.instance().props.onFetchData.mock.calls.length).toBe(1);
   });
 
-  test("should call fetchData" , () => {
-      wrapper.instance()._fetchData = jest.fn();
-      wrapper.instance()._tryCallData(null, []);
-      expect(wrapper.instance()._fetchData.mock.calls.length).toBe(1);
+  test("returnData resolve", done => {
+      var nWrapper = wrapper;
+      ((nWrapper, done)=>{
+        return new Promise((resolve, reject)=>{
+          nWrapper.instance()._returnData(resolve, reject, null, ["blue"]);
+        }).then(data =>{
+           expect(data).toEqual(["blue"]);
+          done();
+        })
+      })(nWrapper, done);
+  })
+
+  test("returnData reject", done => {
+      var nWrapper = wrapper;
+      ((nWrapper, done)=>{
+        return new Promise((resolve, reject)=>{
+          nWrapper.instance()._returnData(resolve, reject, "reject", ["blue"]);
+        }).catch(err =>{
+           expect(err).toEqual("reject");
+          done();
+        })
+      })(nWrapper, done);
+  })
+
+  test("_getData resolve", done =>{
+    trafficMeister.fetchData = jest.fn().mockImplementationOnce(cb =>{
+      cb(null, [])
+      return ['data'];
+    });
+    let nWrapper = wrapper.instance();
+    nWrapper._fetchData = jest.fn();
+    nWrapper._getData().then(data => {
+      expect(trafficMeister.fetchData.mock.calls.length).toBe(1);
+      done();
+    })
   });
 
+  test("_getData reject", done =>{
+    trafficMeister.fetchData = jest.fn().mockImplementationOnce(cb =>{
+      cb("reject", [])
+    });
+    let nWrapper = wrapper.instance();
+    nWrapper._fetchData = jest.fn();
+    nWrapper._getData().catch(err => {
+      expect(trafficMeister.fetchData.mock.calls.length).toBe(1);
+      expect(err).toBe("reject")
+      done();
+    })
+  });
+  
   test("should retry call data" , () => {
     wrapper.instance()._getData = jest.fn();
     wrapper.instance()._fetchData = jest.fn();

@@ -13,29 +13,34 @@ class App extends Component {
     }
     this._getData = this._getData.bind(this);
     this._tryCallData = this._tryCallData.bind(this)
+    this._fetchData = this._fetchData.bind(this)
   }
 
   _fetchData(data){
     this.props.onFetchData(data);
   }
 
-  _tryCallData(err, data){
-    if(err !== null){
-      if(this.state.tries < this.state.maxTries) {
-        setTimeout(this._getData, this.state.timer)
-      }else{
-        throw "too much tries";
-      }
+  _tryCallData(err){
+    if(this.state.tries < this.state.maxTries) {
+      this.setState({tries:this.state.tries+1})
+      setTimeout(this._getData, this.state.timer);
       throw err;
     }
-    this._fetchData(data);
+    throw "too much tries";
   }
-  
+
+  _returnData(resolve, reject, err, data){
+      if(err !== null) return reject(err);
+      return resolve(data)
+  }
+
   _getData(){
-    const that = this;
-    trafficMeister.fetchData((err, data) => {
-      that._tryCallData(err, data)
-    })
+    return new Promise((resolve, reject) => {
+      trafficMeister.fetchData((err, data) => {
+        this._returnData(resolve, reject, err, data);
+      })
+    }).then(data => this._fetchData(data))
+      .catch(err => this._tryCallData(err))
   }
 
   componentDidMount(){
